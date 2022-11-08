@@ -12,6 +12,15 @@ export const readFileSync = (path) => {
   }
 };
 
+export const readFile = async (path) => {
+  try {
+    const file = await Deno.readFile(path);
+    return new Ok(file);
+  } catch {
+    return new Error();
+  }
+};
+
 export const getRequestURL = (req) => {
   return req.url;
 };
@@ -42,3 +51,11 @@ export const new404Response = (body) => {
 };
 
 export const cwd = () => Deno.cwd();
+
+export const promiseNew = (p) => new Promise(() => p);
+
+export const promiseThen = (p, cb) => {
+  return p.then((v) => cb(v));
+};
+
+export const promiseResolve = (v) => Promise.resolve(v);

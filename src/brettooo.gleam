@@ -1,3 +1,5 @@
+import gleam/string
+import gleam/list
 import server.{
   Request, Response, new_404_response, new_response, new_svg_response,
   request_url, serve, url_from,
@@ -8,8 +10,7 @@ import pages/home.{home}
 import pages/blog.{blog}
 import pages/not_found.{not_found}
 import deno
-import gleam/string
-import gleam/list
+import promise.{Promise}
 
 pub fn main() {
   serve(request_handler)
@@ -38,35 +39,37 @@ fn render_page(html: Html) -> String {
   doc_type <> html
 }
 
-fn static_asset(path: String) -> Response {
+fn static_asset(path: String) -> Promise(Response) {
   log("./static" <> path)
   log(deno.cwd() <> "/static" <> path)
-  let file = deno.read_file_sync(deno.cwd() <> "/static" <> path)
 
-  case file {
-    Ok(f) -> {
-      log("It exists")
-      let extension = case path {
-        "/img/" <> file_name -> {
-          let split_string = string.split(file_name, on: ".")
-          list.last(split_string)
+  deno.read_file(deno.cwd() <> "/static" <> path)
+  |> promise.then(fn(file) {
+    case file {
+      Ok(f) -> {
+        log("It exists")
+        let extension = case path {
+          "/img/" <> file_name -> {
+            let split_string = string.split(file_name, on: ".")
+            list.last(split_string)
+          }
+          _ -> Error(Nil)
         }
-        _ -> Error(Nil)
+        case extension {
+          Ok("svg") -> new_svg_response(f)
+          Error(_) -> new_404_response("404")
+          _ -> new_404_response("404")
+        }
       }
-      case extension {
-        Ok("svg") -> new_svg_response(f)
-        Error(_) -> new_404_response("404")
-        _ -> new_404_response("404")
+      Error(_) -> {
+        log("it doesn't exist")
+        new_404_response("404")
       }
     }
-    Error(_) -> {
-      log("it doesn't exist")
-      new_404_response("404")
-    }
-  }
+  })
 }
 
-fn request_handler(req: Request) -> Response {
+fn request_handler(req: Request) -> Promise(Response) {
   reset_sheet()
 
   let url =
@@ -78,15 +81,18 @@ fn request_handler(req: Request) -> Response {
       home()
       |> render_page
       |> new_response
+      |> promise.resolve
     "/blog" <> path ->
       blog(path)
       |> render_page
       |> new_response
+      |> promise.resolve
     "/static" <> path -> static_asset(path)
     _ ->
       not_found()
       |> render_page
       |> new_response
+      |> promise.resolve
   }
 }
 
