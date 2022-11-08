@@ -41,6 +41,14 @@ export const newSvgResponse = (body) => {
   });
 };
 
+export const newIcoResponse = (body) => {
+  return new Response(body, {
+    headers: {
+      "content-type": "image/x-icon",
+    },
+  });
+};
+
 export const new404Response = (body) => {
   return new Response(body, {
     headers: {

@@ -31,6 +31,10 @@ pub fn a(attributes: List(Attribute), children: List(Html)) -> Html {
   Node(tag: "a", attributes: attributes, children: children)
 }
 
+pub fn link(attributes: List(Attribute)) -> Html {
+  Node(tag: "link", attributes: attributes, children: [])
+}
+
 pub fn node(
   tag: String,
   attributes: List(Attribute),

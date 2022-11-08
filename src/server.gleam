@@ -17,6 +17,9 @@ pub external fn new_response(text: String) -> Response =
 pub external fn new_svg_response(img: UInt8Array) -> Response =
   "./ffi.js" "newSvgResponse"
 
+pub external fn new_ico_response(ico: UInt8Array) -> Response =
+  "./ffi.js" "newIcoResponse"
+
 pub external fn new_404_response(body: String) -> Response =
   "./ffi.js" "new404Response"
 

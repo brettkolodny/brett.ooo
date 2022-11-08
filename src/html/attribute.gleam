@@ -12,3 +12,7 @@ pub fn src(src: String) -> Attribute {
 pub fn href(href: String) -> Attribute {
   #("href", href)
 }
+
+pub fn attribute(tag: String, value: String) -> Attribute {
+  #(tag, value)
+}
