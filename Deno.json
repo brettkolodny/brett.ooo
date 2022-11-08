@@ -1,0 +1,6 @@
+{
+  "tasks": {
+    "build": "gleam build --target=javascript && cp -r ./static ./build/dev/javascript/brettooo/dist",
+    "run": "deno run --allow-net --allow-read ./build/dev/javascript/brettooo/dist/entry.js"
+  }
+}
