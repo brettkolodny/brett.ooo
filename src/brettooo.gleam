@@ -40,7 +40,8 @@ fn render_page(html: Html) -> String {
 
 fn static_asset(path: String) -> Response {
   log("./static" <> path)
-  let file = deno.read_file_sync("./static" <> path)
+  log(deno.cwd() <> "/static" <> path)
+  let file = deno.read_file_sync(deno.cwd() <> "/static" <> path)
 
   case file {
     Ok(f) -> {

@@ -40,3 +40,5 @@ export const new404Response = (body) => {
     status: 404,
   });
 };
+
+export const cwd = () => Deno.cwd();
