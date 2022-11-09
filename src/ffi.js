@@ -49,6 +49,14 @@ export const newIcoResponse = (body) => {
   });
 };
 
+export const newPngResponse = (body) => {
+  return new Response(body, {
+    headers: {
+      "content-type": "image/png",
+    },
+  });
+};
+
 export const new404Response = (body) => {
   return new Response(body, {
     headers: {

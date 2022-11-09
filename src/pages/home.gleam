@@ -1,38 +1,47 @@
-import html/element.{Html, a, div, h1, img, text}
-import html/attribute.{class, href, src}
+import html/element.{Html, div, h1, img, text}
+import html/attribute.{class, src}
 import twind/twind.{tw}
 
 pub fn home() -> Html {
   div(
     [
       class(tw(
-        "flex flex-col justify-center items-center gap-8 h-screen bg-base-50",
+        "flex flex-col justify-start items-center gap-8 h-screen bg-base-50",
+      )),
+    ],
+    [hero(), div([], [])],
+  )
+}
+
+fn hero() -> Html {
+  div(
+    [
+      class(tw(
+        "flex flex-row justify-center items-center w-full py-8 bg-[#94E6E3]",
       )),
     ],
     [
-      h1(
+      div(
         [
           class(tw(
-            "text-xl md:text-2xl px-8 md:px-0 text-center font-bold text-base-900",
+            "flex flex-row justify-start items-center gap-8 w-full max-w-5xl",
           )),
         ],
-        [text("A new site is currently baking, check back later!")],
-      ),
-      img([src("/static/img/bread.svg"), class(tw("h-24"))]),
-      div(
-        [class(tw("flex flex-row justify-center gap-2"))],
         [
-          a(
-            [href("#"), class(tw("text-lg text-primary-600 underline"))],
-            [text("github")],
-          ),
-          a(
-            [href("#"), class(tw("text-lg text-primary-600 underline"))],
-            [text("linkedin")],
-          ),
-          a(
-            [href("#"), class(tw("text-lg text-primary-600 underline"))],
-            [text("art")],
+          img([src("/static/img/home-hero.png")]),
+          div(
+            [class(tw("flex flex-col gap-2"))],
+            [
+              h1([class(tw("text-4xl font-bold"))], [text("Brett Kolodny")]),
+              div(
+                [class(tw("max-w-xs"))],
+                [
+                  text(
+                    "Developer of software, knitter of bad scarves, ruler of threes.",
+                  ),
+                ],
+              ),
+            ],
           ),
         ],
       ),
