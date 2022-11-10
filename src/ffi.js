@@ -1,7 +1,10 @@
 import { Ok, Error } from "./gleam.mjs";
 import { serve } from "https://deno.land/std@0.161.0/http/server.ts";
+import { CSS, render } from "https://deno.land/x/gfm/mod.ts";
 
-export { serve };
+export { serve, render };
+
+export const mdCSS = () => CSS;
 
 export const readFileSync = (path) => {
   try {
@@ -16,6 +19,15 @@ export const readFile = async (path) => {
   try {
     const file = await Deno.readFile(path);
     return new Ok(file);
+  } catch {
+    return new Error();
+  }
+};
+
+export const readTextFile = async (path) => {
+  try {
+    const fileContent = await Deno.readTextFile(path);
+    return new Ok(fileContent);
   } catch {
     return new Error();
   }

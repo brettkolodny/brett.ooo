@@ -32,9 +32,12 @@ fn hero() -> Html {
           div(
             [class(tw("flex flex-col gap-2"))],
             [
-              h1([class(tw("text-4xl font-bold"))], [text("Brett Kolodny")]),
+              h1(
+                [class(tw("text-4xl font-bold text-[#333333]"))],
+                [text("Brett Kolodny")],
+              ),
               div(
-                [class(tw("max-w-xs"))],
+                [class(tw("max-w-xs text-[#333333]"))],
                 [
                   text(
                     "Developer of software, knitter of bad scarves, ruler of threes.",

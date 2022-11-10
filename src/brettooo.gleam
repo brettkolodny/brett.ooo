@@ -46,7 +46,7 @@ fn nav_bar(path: String) -> Html {
   }
 
   div(
-    [class(tw("flex justify-center items-center pt-4 bg-[#94E6E3]"))],
+    [class(tw("flex justify-center items-center py-4 bg-[#94E6E3]"))],
     [
       div(
         [
@@ -62,7 +62,7 @@ fn nav_bar(path: String) -> Html {
 
 fn footer() -> Html {
   div(
-    [class(tw("flex justify-center items-center bg-base-50"))],
+    [class(tw("absolute bottom-0 flex justify-center items-center w-full"))],
     [
       div(
         [
@@ -105,6 +105,16 @@ fn render_page(path: String, html: Html) -> String {
               attribute("type", "image/x-icon"),
               href("/static/img/favicon.ico"),
             ]),
+            text(
+              "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
+<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
+<link href=\"https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap\" rel=\"stylesheet\">",
+            ),
+            node(
+              "style",
+              [],
+              [text("html { font-family: 'Outfit', sans-serif; }")],
+            ),
           ],
         ),
         node("body", [], [nav, html, footer]),
@@ -154,10 +164,14 @@ fn request_handler(req: Request) -> Promise(Response) {
       |> new_response
       |> promise.resolve
     "/blog" <> path ->
-      blog(path)
-      |> render_page(url.pathname, _)
-      |> new_response
-      |> promise.resolve
+      promise.then(
+        blog(path),
+        fn(html) {
+          html
+          |> render_page(url.pathname, _)
+          |> new_response
+        },
+      )
     "/static" <> path -> static_asset(path)
     _ ->
       not_found()
