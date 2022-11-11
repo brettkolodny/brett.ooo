@@ -33,40 +33,45 @@ pub fn blog(blog_name: String) -> Promise(Html) {
   }
 }
 
-fn blog_home() -> Promise(Html) {
-  blog_link(
-    "Building Web Apps for the 21st Century with Elixir, Phoenix, and Ash",
-    "Nov, 2022",
-    "/blog/building-with-ash",
+pub fn blog_link(name: String, date: String, link: String) -> Html {
+  div(
+    [class(tw("flex flex-col justify-center items-start w-full"))],
+    [
+      a(
+        [href(link), class(tw("flex flex-col gap-1"))],
+        [
+          div(
+            [class(tw("text-[#333333] font-semibold w-[280px] underline"))],
+            [text(name)],
+          ),
+          div([class(tw("text-sm text-gray-400"))], [text(date)]),
+        ],
+      ),
+    ],
   )
-  |> promise.resolve
 }
 
-fn blog_link(name: String, date: String, link: String) -> Html {
+fn blog_home() -> Promise(Html) {
   div(
-    [class(tw("flex justify-center items-center w-full"))],
+    [class(tw("flex justify-center items-center"))],
     [
       div(
-        [class(tw("flex flex-col w-full max-w-5xl"))],
+        [class(tw("flex flex-col items-start w-full max-w-5xl"))],
         [
           h1(
-            [class(tw("text-4xl text-[#189474] font-bold mt-16 mb-4"))],
+            [class(tw("text-[#189474] text-4xl font-semibold py-8"))],
             [text("Blogs")],
           ),
-          a(
-            [href(link), class(tw("flex flex-col gap-1"))],
-            [
-              div(
-                [class(tw("text-[#333333] font-semibold w-[280px] underline"))],
-                [text(name)],
-              ),
-              div([class(tw("text-sm text-gray-400"))], [text(date)]),
-            ],
+          blog_link(
+            "Building Web Apps for the 21st Century with Elixir, Phoenix, and Ash",
+            "Nov, 2022",
+            "/blog/building-with-ash",
           ),
         ],
       ),
     ],
   )
+  |> promise.resolve
 }
 
 external fn render_md(md: String) -> String =

@@ -1,15 +1,12 @@
-import html/element.{Html, div, h1, img, text}
-import html/attribute.{class, src}
+import html/element.{Html, a, div, h1, h2, img, text}
+import html/attribute.{class, href, src}
+import pages/blog.{blog_link}
 import twind/twind.{tw}
 
 pub fn home() -> Html {
   div(
-    [
-      class(tw(
-        "flex flex-col justify-start items-center gap-8 h-screen bg-base-50",
-      )),
-    ],
-    [hero(), div([], [])],
+    [class(tw("flex flex-col justify-start items-center gap-8"))],
+    [hero(), recent_blogs()],
   )
 }
 
@@ -47,6 +44,37 @@ fn hero() -> Html {
             ],
           ),
         ],
+      ),
+    ],
+  )
+}
+
+fn recent_blogs() -> Html {
+  div(
+    [class(tw("flex flex-col gap-4 w-full max-w-5xl"))],
+    [
+      div(
+        [class(tw("flex flex-col gap-2 items-start w-full"))],
+        [
+          h2(
+            [class(tw("text-4xl text-[#189474] font-semibold"))],
+            [text("Recent Blogs")],
+          ),
+          div(
+            [class(tw("flex flex-row"))],
+            [
+              blog_link(
+                "Building Web Apps for the 21st Century with Elixir, Phoenix, and Ash",
+                "Nov, 2022",
+                "/blog/building-with-ash",
+              ),
+            ],
+          ),
+        ],
+      ),
+      a(
+        [href("/blog"), class(tw("text-[#189474] underline"))],
+        [text("See more")],
       ),
     ],
   )

@@ -5,7 +5,7 @@ import server.{
   new_response, new_svg_response, request_url, serve, url_from,
 }
 import twind/twind.{get_style_tag_with_sheet, reset_sheet, tw}
-import html/element.{Html, a, div, link, node, render, text}
+import html/element.{Html, a, div, link, node, render, span, text}
 import html/attribute.{attribute, class, href}
 import pages/home.{home}
 import pages/blog.{blog}
@@ -20,28 +20,76 @@ pub fn main() {
 fn nav_bar(path: String) -> Html {
   let links = case path {
     "/" -> [
-      a([href("/")], [text("🥯 home")]),
-      a([href("#")], [text("portfolio")]),
-      a([href("/blog")], [text("blog")]),
-      a([href("#")], [text("resume")]),
+      a(
+        [href("/"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("🥯")]), text("home")],
+      ),
+      a(
+        [href("#"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("")]), text("portfolio")],
+      ),
+      a(
+        [href("/blog"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("")]), text("blog")],
+      ),
+      a(
+        [href("#"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("")]), text("resume")],
+      ),
     ]
     "/blog" <> _ -> [
-      a([href("/")], [text("home")]),
-      a([href("#")], [text("portfolio")]),
-      a([href("/blog")], [text("🥯 blog")]),
-      a([href("#")], [text("resume")]),
+      a(
+        [href("/"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("")]), text("home")],
+      ),
+      a(
+        [href("#"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("")]), text("portfolio")],
+      ),
+      a(
+        [href("/blog"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("🥯")]), text("blog")],
+      ),
+      a(
+        [href("#"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("")]), text("resume")],
+      ),
     ]
     "/portfolio" <> _ -> [
-      a([href("/")], [text("home")]),
-      a([href("#")], [text("🥯 portfolio")]),
-      a([href("/blog")], [text("blog")]),
-      a([href("#")], [text("resume")]),
+      a(
+        [href("/"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("")]), text("home")],
+      ),
+      a(
+        [href("#"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("🥯")]), text("portfolio")],
+      ),
+      a(
+        [href("/blog"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("")]), text("blog")],
+      ),
+      a(
+        [href("#"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("")]), text("resume")],
+      ),
     ]
     _ -> [
-      a([href("/")], [text("home")]),
-      a([href("#")], [text("portfolio")]),
-      a([href("/blog")], [text("blog")]),
-      a([href("#")], [text("resume")]),
+      a(
+        [href("/"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("")]), text("home")],
+      ),
+      a(
+        [href("#"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("")]), text("portfolio")],
+      ),
+      a(
+        [href("/blog"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("")]), text("blog")],
+      ),
+      a(
+        [href("#"), class(tw("flex flex-row gap-1"))],
+        [span([class(tw("w-4"))], [text("")]), text("resume")],
+      ),
     ]
   }
 
@@ -62,7 +110,7 @@ fn nav_bar(path: String) -> Html {
 
 fn footer() -> Html {
   div(
-    [class(tw("absolute bottom-0 flex justify-center items-center w-full"))],
+    [class(tw("flex justify-center items-center w-full"))],
     [
       div(
         [
@@ -83,6 +131,7 @@ fn footer() -> Html {
 fn render_page(path: String, html: Html) -> String {
   let nav = nav_bar(path)
   let footer = footer()
+  let body_style = tw("flex flex-col justify-between min-h-screen")
 
   // This needs to be done after all other rendering
   let style_tag = get_style_tag_with_sheet()
@@ -117,7 +166,11 @@ fn render_page(path: String, html: Html) -> String {
             ),
           ],
         ),
-        node("body", [], [nav, html, footer]),
+        node(
+          "body",
+          [class(body_style)],
+          [div([class(tw("flex flex-col justify-start"))], [nav, html]), footer],
+        ),
       ],
     )
     |> render

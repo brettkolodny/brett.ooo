@@ -11,6 +11,10 @@ pub fn div(attributes: List(Attribute), children: List(Html)) -> Html {
   Node(tag: "div", attributes: attributes, children: children)
 }
 
+pub fn span(attributes: List(Attribute), children: List(Html)) -> Html {
+  Node(tag: "span", attributes: attributes, children: children)
+}
+
 pub fn h1(attributes: List(Attribute), children: List(Html)) -> Html {
   Node(tag: "h1", attributes: attributes, children: children)
 }
