@@ -36,6 +36,14 @@ fn nav_bar(path: String) -> Html {
         [href("#"), class(tw("flex flex-row gap-1"))],
         [span([class(tw("w-4"))], [text("")]), text("resume")],
       ),
+      a(
+        [
+          href("https://www.github.com/brettkolodny"),
+          attribute("target", "_blank"),
+          class(tw("flex flex-row gap-1")),
+        ],
+        [span([class(tw("w-4"))], [text("")]), text("github")],
+      ),
     ]
     "/blog" <> _ -> [
       a(
@@ -53,6 +61,14 @@ fn nav_bar(path: String) -> Html {
       a(
         [href("#"), class(tw("flex flex-row gap-1"))],
         [span([class(tw("w-4"))], [text("")]), text("resume")],
+      ),
+      a(
+        [
+          href("https://www.github.com/brettkolodny"),
+          attribute("target", "_blank"),
+          class(tw("flex flex-row gap-1")),
+        ],
+        [span([class(tw("w-4"))], [text("")]), text("github")],
       ),
     ]
     "/portfolio" <> _ -> [
@@ -72,6 +88,14 @@ fn nav_bar(path: String) -> Html {
         [href("#"), class(tw("flex flex-row gap-1"))],
         [span([class(tw("w-4"))], [text("")]), text("resume")],
       ),
+      a(
+        [
+          href("https://www.github.com/brettkolodny"),
+          attribute("target", "_blank"),
+          class(tw("flex flex-row gap-1")),
+        ],
+        [span([class(tw("w-4"))], [text("")]), text("github")],
+      ),
     ]
     _ -> [
       a(
@@ -89,6 +113,14 @@ fn nav_bar(path: String) -> Html {
       a(
         [href("#"), class(tw("flex flex-row gap-1"))],
         [span([class(tw("w-4"))], [text("")]), text("resume")],
+      ),
+      a(
+        [
+          href("https://www.github.com/brettkolodny"),
+          attribute("target", "_blank"),
+          class(tw("flex flex-row gap-1")),
+        ],
+        [span([class(tw("w-4"))], [text("")]), text("github")],
       ),
     ]
   }
