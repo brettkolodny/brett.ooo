@@ -13,6 +13,10 @@ pub fn href(href: String) -> Attribute {
   #("href", href)
 }
 
+pub fn target(target: String) -> Attribute {
+  #("target", target)
+}
+
 pub fn attribute(tag: String, value: String) -> Attribute {
   #(tag, value)
 }

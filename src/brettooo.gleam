@@ -1,8 +1,8 @@
 import gleam/string
 import gleam/list
 import server.{
-  Request, Response, new_404_response, new_ico_response, new_png_response,
-  new_response, new_svg_response, request_url, serve, url_from,
+  Request, Response, new_404_response, new_ico_response, new_jpg_response,
+  new_png_response, new_response, new_svg_response, request_url, serve, url_from,
 }
 import twind/twind.{reset_sheet}
 import pages/home.{home}
@@ -32,6 +32,7 @@ fn static_asset(path: String) -> Promise(Response) {
           Ok("svg") -> new_svg_response(f)
           Ok("ico") -> new_ico_response(f)
           Ok("png") -> new_png_response(f)
+          Ok("jpg") -> new_jpg_response(f)
           Error(_) -> new_404_response("404")
           _ -> new_404_response("404")
         }

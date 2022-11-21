@@ -69,6 +69,14 @@ export const newPngResponse = (body) => {
   });
 };
 
+export const newJpgResponse = (body) => {
+  return new Response(body, {
+    headers: {
+      "content-type": "image/jpeg",
+    },
+  });
+};
+
 export const new404Response = (body) => {
   return new Response(body, {
     headers: {

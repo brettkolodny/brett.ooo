@@ -1,12 +1,14 @@
 import html/element.{Html, a, div, h1, h2, img, text}
-import html/attribute.{class, href, src}
+import html/attribute.{class, href, src, target}
 import pages/blog.{blog_link}
+import pages/portfolio.{project_link}
+import pages/art.{art_link}
 import twind/twind.{tw}
 
 pub fn home() -> Html {
   div(
     [class(tw("flex flex-col justify-start items-center gap-8"))],
-    [hero(), recent_blogs()],
+    [hero(), recent_blogs(), featured_projects(), featured_art()],
   )
 }
 
@@ -74,6 +76,116 @@ fn recent_blogs() -> Html {
       ),
       a(
         [href("/blog"), class(tw("text-[#189474] underline"))],
+        [text("See more")],
+      ),
+    ],
+  )
+}
+
+fn featured_projects() -> Html {
+  div(
+    [class(tw("flex flex-col gap-4 w-full max-w-5xl"))],
+    [
+      div(
+        [class(tw("flex flex-col gap-4 items-start w-full"))],
+        [
+          h2(
+            [class(tw("text-4xl text-[#189474] font-semibold"))],
+            [text("Projects")],
+          ),
+          div(
+            [
+              class(tw(
+                "flex flex-row flex-wrap justify-start items-start w-full gap-4",
+              )),
+            ],
+            [
+              project_link(
+                "Todoish",
+                "A sharable real-time todo list built with Elixor, Phoenix, and Ash.",
+                "https://github.com/brettkolodny/todoish",
+                "/static/img/projects/todoish.jpg",
+              ),
+              project_link(
+                "Mancala",
+                "Multiplayer Mancala implemented using Elixir/OTP, Phoenix, LiveView, and Rust.",
+                "https://github.com/brettkolodny/mancala_ex",
+                "/static/img/projects/mancala.jpg",
+              ),
+              project_link(
+                "Slice",
+                "A hybrid functional and imperative scripting language",
+                "https://github.com/brettkolodny/slice",
+                "/static/img/projects/slice.jpg",
+              ),
+              project_link(
+                "Incantation Catastrophe",
+                "Wave based game built with Rust and Amethyst.",
+                "https://github.com/brettkolodny/incantation-catastrophe",
+                "/static/img/projects/incantation.jpg",
+              ),
+              project_link(
+                "Memory Game",
+                "A card matching memory game based on Seterra built with TypeScript and Electron.",
+                "https://github.com/brettkolodny/Memory-Game",
+                "/static/img/projects/memory.jpg",
+              ),
+            ],
+          ),
+        ],
+      ),
+      a(
+        [
+          href("https://www.github.com/brettkolodny"),
+          target("_blank"),
+          class(tw("text-[#189474] underline")),
+        ],
+        [text("See more")],
+      ),
+    ],
+  )
+}
+
+fn featured_art() -> Html {
+  div(
+    [class(tw("flex flex-col gap-4 w-full max-w-5xl mb-16"))],
+    [
+      div(
+        [class(tw("flex flex-col gap-4 items-start w-full"))],
+        [
+          h2(
+            [class(tw("text-4xl text-[#189474] font-semibold"))],
+            [text("Art")],
+          ),
+          div(
+            [
+              class(tw(
+                "flex flex-row flex-wrap justify-start items-start w-full gap-4",
+              )),
+            ],
+            [
+              art_link(
+                "https://www.instagram.com/p/CQY7fxPl6pv/",
+                "/static/img/art/bubbles.jpg",
+              ),
+              art_link(
+                "https://www.instagram.com/p/CIE0nCEK0zB/",
+                "/static/img/art/blast.jpg",
+              ),
+              art_link(
+                "https://www.instagram.com/p/B5BSChBgC9T/",
+                "/static/img/art/clock.jpg",
+              ),
+            ],
+          ),
+        ],
+      ),
+      a(
+        [
+          href("https://www.instagram.com/breadblends/"),
+          target("_blank"),
+          class(tw("text-[#189474] underline")),
+        ],
         [text("See more")],
       ),
     ],

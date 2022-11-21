@@ -60,10 +60,6 @@ pub fn nav_bar(path: String) -> Html {
         [span([class(tw("w-4"))], [text("🥯")]), text("home")],
       ),
       a(
-        [href("#"), class(tw("flex flex-row gap-1"))],
-        [span([class(tw("w-4"))], [text("")]), text("portfolio")],
-      ),
-      a(
         [href("/blog"), class(tw("flex flex-row gap-1"))],
         [span([class(tw("w-4"))], [text("")]), text("blog")],
       ),
@@ -86,38 +82,8 @@ pub fn nav_bar(path: String) -> Html {
         [span([class(tw("w-4"))], [text("")]), text("home")],
       ),
       a(
-        [href("#"), class(tw("flex flex-row gap-1"))],
-        [span([class(tw("w-4"))], [text("")]), text("portfolio")],
-      ),
-      a(
         [href("/blog"), class(tw("flex flex-row gap-1"))],
         [span([class(tw("w-4"))], [text("🥯")]), text("blog")],
-      ),
-      a(
-        [href("#"), class(tw("flex flex-row gap-1"))],
-        [span([class(tw("w-4"))], [text("")]), text("resume")],
-      ),
-      a(
-        [
-          href("https://www.github.com/brettkolodny"),
-          attribute("target", "_blank"),
-          class(tw("flex flex-row gap-1")),
-        ],
-        [span([class(tw("w-4"))], [text("")]), text("github")],
-      ),
-    ]
-    "/portfolio" <> _ -> [
-      a(
-        [href("/"), class(tw("flex flex-row gap-1"))],
-        [span([class(tw("w-4"))], [text("")]), text("home")],
-      ),
-      a(
-        [href("#"), class(tw("flex flex-row gap-1"))],
-        [span([class(tw("w-4"))], [text("🥯")]), text("portfolio")],
-      ),
-      a(
-        [href("/blog"), class(tw("flex flex-row gap-1"))],
-        [span([class(tw("w-4"))], [text("")]), text("blog")],
       ),
       a(
         [href("#"), class(tw("flex flex-row gap-1"))],
@@ -136,10 +102,6 @@ pub fn nav_bar(path: String) -> Html {
       a(
         [href("/"), class(tw("flex flex-row gap-1"))],
         [span([class(tw("w-4"))], [text("")]), text("home")],
-      ),
-      a(
-        [href("#"), class(tw("flex flex-row gap-1"))],
-        [span([class(tw("w-4"))], [text("")]), text("portfolio")],
       ),
       a(
         [href("/blog"), class(tw("flex flex-row gap-1"))],
