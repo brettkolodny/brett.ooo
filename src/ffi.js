@@ -77,6 +77,14 @@ export const newJpgResponse = (body) => {
   });
 };
 
+export const newPdfResponse = (body) => {
+  return new Response(body, {
+    headers: {
+      "content-type": "application/pdf",
+    },
+  });
+};
+
 export const new404Response = (body) => {
   return new Response(body, {
     headers: {

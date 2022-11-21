@@ -7,6 +7,7 @@ import server.{
 import twind/twind.{reset_sheet}
 import pages/home.{home}
 import pages/blog.{blog}
+import pages/resume.{resume}
 import pages/common.{render_page}
 import pages/not_found.{not_found}
 import deno
@@ -65,6 +66,7 @@ fn request_handler(req: Request) -> Promise(Response) {
         },
       )
     "/static" <> path -> static_asset(path)
+    "/resume" -> resume()
     _ ->
       not_found()
       |> render_page(url.pathname, _)

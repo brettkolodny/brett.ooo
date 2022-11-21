@@ -1,5 +1,5 @@
 import html/element.{Html, a, div, link, node, render, span, text}
-import html/attribute.{attribute, class, href}
+import html/attribute.{attribute, class, href, target}
 import twind/twind.{get_style_tag_with_sheet, tw}
 
 pub fn render_page(path: String, html: Html) -> String {
@@ -64,7 +64,7 @@ pub fn nav_bar(path: String) -> Html {
         [span([class(tw("w-4"))], [text("")]), text("blog")],
       ),
       a(
-        [href("#"), class(tw("flex flex-row gap-1"))],
+        [href("/resume"), target("_blank"), class(tw("flex flex-row gap-1"))],
         [span([class(tw("w-4"))], [text("")]), text("resume")],
       ),
       a(
@@ -86,7 +86,7 @@ pub fn nav_bar(path: String) -> Html {
         [span([class(tw("w-4"))], [text("🥯")]), text("blog")],
       ),
       a(
-        [href("#"), class(tw("flex flex-row gap-1"))],
+        [href("/resume"), target("_blank"), class(tw("flex flex-row gap-1"))],
         [span([class(tw("w-4"))], [text("")]), text("resume")],
       ),
       a(
@@ -108,7 +108,7 @@ pub fn nav_bar(path: String) -> Html {
         [span([class(tw("w-4"))], [text("")]), text("blog")],
       ),
       a(
-        [href("#"), class(tw("flex flex-row gap-1"))],
+        [href("/resume"), target("_blank"), class(tw("flex flex-row gap-1"))],
         [span([class(tw("w-4"))], [text("")]), text("resume")],
       ),
       a(

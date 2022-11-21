@@ -26,6 +26,9 @@ pub external fn new_png_response(ico: UInt8Array) -> Response =
 pub external fn new_jpg_response(jpg: UInt8Array) -> Response =
   "./ffi.js" "newJpgResponse"
 
+pub external fn new_pdf_response(pdf: UInt8Array) -> Response =
+  "./ffi.js" "newPdfResponse"
+
 pub external fn new_404_response(body: String) -> Response =
   "./ffi.js" "new404Response"
 
