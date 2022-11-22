@@ -128,7 +128,7 @@ pub fn nav_bar(path: String) -> Html {
       div(
         [
           class(tw(
-            "flex flex-row justify-start items-center gap-6 w-full max-w-5xl h-10",
+            "flex flex-row justify-start items-center gap-6 w-full max-w-4xl lg:max-w-5xl h-10 text-2xl lg:text-base",
           )),
         ],
         links,

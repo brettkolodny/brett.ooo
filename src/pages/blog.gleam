@@ -41,10 +41,14 @@ pub fn blog_link(name: String, date: String, link: String) -> Html {
         [href(link), class(tw("flex flex-col gap-1"))],
         [
           div(
-            [class(tw("text-[#333333] font-semibold w-[280px] underline"))],
+            [
+              class(tw(
+                "text-4xl lg:text-base text-[#333333] font-semibold w-[512px] lg:w-[280px] underline",
+              )),
+            ],
             [text(name)],
           ),
-          div([class(tw("text-sm text-gray-400"))], [text(date)]),
+          div([class(tw("text-xl lg:text-sm text-gray-400"))], [text(date)]),
         ],
       ),
     ],

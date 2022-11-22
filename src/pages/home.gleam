@@ -23,7 +23,7 @@ fn hero() -> Html {
       div(
         [
           class(tw(
-            "flex flex-row justify-start items-center gap-8 w-full max-w-5xl",
+            "flex flex-row justify-start items-center gap-8 w-full max-w-4xl lg:max-w-5xl",
           )),
         ],
         [
@@ -32,11 +32,11 @@ fn hero() -> Html {
             [class(tw("flex flex-col gap-2"))],
             [
               h1(
-                [class(tw("text-4xl font-bold text-[#333333]"))],
+                [class(tw("text-7xl lg:text-4xl font-bold text-[#333333]"))],
                 [text("Brett Kolodny")],
               ),
               div(
-                [class(tw("max-w-xs text-[#333333]"))],
+                [class(tw("max-w-xs text-lg lg:text-base text-[#333333]"))],
                 [
                   text(
                     "Developer of software, knitter of bad scarves, ruler of threes.",
@@ -53,17 +53,21 @@ fn hero() -> Html {
 
 fn recent_blogs() -> Html {
   div(
-    [class(tw("flex flex-col gap-4 w-full max-w-5xl"))],
+    [class(tw("flex flex-col gap-8 lg:gap-4 w-full max-w-4xl lg:max-w-5xl"))],
     [
       div(
-        [class(tw("flex flex-col gap-2 items-start w-full"))],
+        [class(tw("flex flex-col gap-16 lg:gap-4 items-start w-full"))],
         [
           h2(
-            [class(tw("text-4xl text-[#189474] font-semibold"))],
+            [class(tw("text-7xl lg:text-4xl text-[#189474] font-semibold"))],
             [text("Recent Blogs")],
           ),
           div(
-            [class(tw("flex flex-row"))],
+            [
+              class(tw(
+                "flex flex-col lg:flex-row flex-wrap justify-start items-center lg:items-start gap-16 lg:gap-8 w-full",
+              )),
+            ],
             [
               blog_link(
                 "Building Web Apps for the 21st Century with Elixir, Phoenix, and Ash",
@@ -84,19 +88,19 @@ fn recent_blogs() -> Html {
 
 fn featured_projects() -> Html {
   div(
-    [class(tw("flex flex-col gap-4 w-full max-w-5xl"))],
+    [class(tw("flex flex-col gap-8 lg:gap-4 w-full max-w-4xl lg:max-w-5xl"))],
     [
       div(
-        [class(tw("flex flex-col gap-4 items-start w-full"))],
+        [class(tw("flex flex-col gap-16 lg:gap-4 items-start w-full"))],
         [
           h2(
-            [class(tw("text-4xl text-[#189474] font-semibold"))],
+            [class(tw("text-7xl lg:text-4xl text-[#189474] font-semibold"))],
             [text("Projects")],
           ),
           div(
             [
               class(tw(
-                "flex flex-row flex-wrap justify-start items-start w-full gap-4",
+                "flex flex-col lg:flex-row flex-wrap justify-start items-center lg:items-start gap-16 lg:gap-8 w-full",
               )),
             ],
             [
@@ -119,7 +123,7 @@ fn featured_projects() -> Html {
                 "/static/img/projects/slice.jpg",
               ),
               project_link(
-                "Incantation Catastrophe",
+                "Incantation",
                 "Wave based game built with Rust and Amethyst.",
                 "https://github.com/brettkolodny/incantation-catastrophe",
                 "/static/img/projects/incantation.jpg",
@@ -148,19 +152,23 @@ fn featured_projects() -> Html {
 
 fn featured_art() -> Html {
   div(
-    [class(tw("flex flex-col gap-4 w-full max-w-5xl mb-16"))],
+    [
+      class(tw(
+        "flex flex-col gap-8 lg:gap-4 w-full max-w-4xl lg:max-w-5xl mb-16",
+      )),
+    ],
     [
       div(
         [class(tw("flex flex-col gap-4 items-start w-full"))],
         [
           h2(
-            [class(tw("text-4xl text-[#189474] font-semibold"))],
+            [class(tw("text-7xl lg:text-4xl text-[#189474] font-semibold"))],
             [text("Art")],
           ),
           div(
             [
               class(tw(
-                "flex flex-row flex-wrap justify-start items-start w-full gap-4",
+                "flex flex-col lg:flex-row flex-wrap justify-start items-center lg:items-start gap-16 lg:gap-8 w-full",
               )),
             ],
             [

@@ -12,7 +12,7 @@ pub fn art_link(link: String, image_path: String) -> Html {
           img([
             src(image_path),
             class(tw(
-              "bg-black w-64 h-48 rounded-md shadow-md mb-2 object-cover",
+              "bg-black w-[512px] lg:w-64 lg:h-48 rounded-md shadow-md mb-2 object-cover",
             )),
           ]),
         ],
