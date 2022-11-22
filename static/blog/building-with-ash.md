@@ -1,3 +1,5 @@
+# **This blog is a WIP!**
+
 # Building Web Apps for the 21st Century with Elixir, Phoenix, and Ash
 
 It's 202X and if you want to start an argument online you can't go wrong with the question "what's the tech stack to build a web app". We've got LAMP, ASP.NET, GLOW, MEAN, MERN, MEVN, BURN, RoR, and so many more. In fact I completely made up two of those and you probably didn't notice. But what if I told you forget all of those! They all promise different benefits, mature ecosystem, robust community libraries, only using JavaScript(?), and more. 
@@ -16,7 +18,7 @@ hmm no...
 
 Anyway it's in the title, we'll be using Elixir, Phoenix, and Ash!
 
-## A bit of background
+<!-- ## A bit of background
 
 This section isn't super relevant to the rest of this blog/tutorial, I just like talking about it. If you want to get to the meat of this sandwich skip ahead to [this section](#What-are-we-doing-here). If you want some fun trivia for your next conference, keep reading!
 
@@ -26,7 +28,7 @@ Fast forward ~26 years and some other really smart people were like "Wow, Erlang
 
 Fast forward a bit more time (I'm not sure how long my one google search wasn't very fruitful) and Phoenix was born! A web framework built on top Elixir chalk full of amazing features! We've got server side rendering, apis, forms, interactive/real time pages with LiveView, and so much more!
 
-Now start slamming on the breaks because we're getting to the end of our journey with the last piece of the puzzle, Ash. Have you ever used an SQL database? You've probably had to write code that amounts to `SELECT x FROM y;` I don't know about you but personally I don't like doing that. What if I misspell something, or what if my data changes and I forget to update my queries? Well lucky for us another really smart guy (the Erlang/Elixir community is full of them) created Ash, and Ash solves those problems and a lot more. Ash is declarative, meaning that instead of just being an interface you use to intreact _with_ your data Ash lets you _describe_ what your data looks like and then offers a robust set of tools for interacting with your data in a way that stops you from shooting yourself in the foot. Ash also doesn't have to be used with a Database at all making it a breeze for rapid iteration and experimentation before you have all the details ironed out. Essentially Ash takes all of the things that are great about Phoenix and Elixir as a whole and applies it to data. Now that's neat!
+Now start slamming on the breaks because we're getting to the end of our journey with the last piece of the puzzle, Ash. Have you ever used an SQL database? You've probably had to write code that amounts to `SELECT x FROM y;` I don't know about you but personally I don't like doing that. What if I misspell something, or what if my data changes and I forget to update my queries? Well lucky for us another really smart guy (the Erlang/Elixir community is full of them) created Ash, and Ash solves those problems and a lot more. Ash is declarative, meaning that instead of just being an interface you use to intreact _with_ your data Ash lets you _describe_ what your data looks like and then offers a robust set of tools for interacting with your data in a way that stops you from shooting yourself in the foot. Ash also doesn't have to be used with a Database at all making it a breeze for rapid iteration and experimentation before you have all the details ironed out. Essentially Ash takes all of the things that are great about Phoenix and Elixir as a whole and applies it to data. Now that's neat! -->
 
 ## What are we doing here?
 
