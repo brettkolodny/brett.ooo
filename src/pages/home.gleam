@@ -8,7 +8,7 @@ import twind/twind.{tw}
 pub fn home() -> Html {
   div(
     [class(tw("flex flex-col justify-start items-center gap-8"))],
-    [hero(), recent_blogs(), featured_projects(), featured_art()],
+    [hero(), featured_projects(), featured_art()],
   )
 }
 
@@ -104,6 +104,12 @@ fn featured_projects() -> Html {
               )),
             ],
             [
+              project_link(
+                "Hug",
+                "A package for creating helpful, and pretty CLI messages.",
+                "https://github.com/brettkolodny/gleam-hug",
+                "/static/img/projects/hug.jpg",
+              ),
               project_link(
                 "Todoish",
                 "A sharable real-time todo list built with Elixor, Phoenix, and Ash.",
