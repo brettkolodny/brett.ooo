@@ -38,7 +38,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "brett-ooo"
-          entrypoint: "server/entry.mjs"
+          entrypoint: "https://jsr.io/@std/http/1.0.10/file_server.ts"
           root: "dist"
           
           
